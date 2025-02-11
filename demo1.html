@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GA4 Booking Analytics</title>
+    
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id=GTM-KJ5S2NQK'+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KJ5S2NQK');</script>
+    <!-- End Google Tag Manager -->
+    
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #eef2f3; text-align: center; padding: 20px; }
+        .container { background: white; padding: 20px; max-width: 400px; margin: auto; border-radius: 10px; 
+                     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
+        select, input, button { width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ccc; border-radius: 5px; }
+        button { cursor: pointer; color: white; }
+        .btn-submit { background: #007bff; }
+        .btn-export { background: #28a745; }
+    </style>
+</head>
+<body>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KJ5S2NQK"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<div class="container">
+    <h2>GA4 Booking Analytics</h2>
+
+    <label>Select Service Type:</label>
+    <select id="serviceType">
+        <option>Hotel Reservation</option>
+        <option>Flight Booking</option>
+        <option>Car Rental</option>
+        <option>Tour Package</option>
+        <option>Event Tickets</option>
+    </select>
+
+    <label>Select Preferred Language:</label>
+    <select id="preferredLanguage">
+        <option>English</option>
+        <option>Spanish</option>
+        <option>French</option>
+    </select>
+
+    <label>Destination:</label>
+    <input type="text" id="destination" placeholder="Enter Destination">
+
+    <label>Booking Source:</label>
+    <input type="text" id="bookingSource" placeholder="Enter Booking Source">
+
+    <button class="btn-submit" onclick="trackEvent('Check Availability')">Check Availability</button>
+    <button class="btn-export" onclick="trackEvent('Confirm Booking')">Confirm Booking</button>
+</div>
+
+<script>
+    function trackEvent(buttonName) {
+        let eventData = {
+            event: "button_click",
+            app_name: "GA4_Booking",
+            service_type: document.getElementById("serviceType").value,
+            action: "button_click",
+            button_name: buttonName,
+            language: document.getElementById("preferredLanguage").value,
+            destination: document.getElementById("destination").value,
+            booking_source: document.getElementById("bookingSource").value,
+        };
+
+        console.log("Pushing to Data Layer:", eventData);
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push(eventData);
+    }
+</script>
+
+</body>
+</html>
