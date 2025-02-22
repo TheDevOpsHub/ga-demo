@@ -11,5 +11,8 @@ Google Analytics demo (Document is WIP)
 ### Demo1
 - Tracking form submission events
 
+  ![demo1](assets/demo1.png)
 ### Demo2
 - Tracking file download and video playback events
+
+  ![demo2](assets/demo2.png)
