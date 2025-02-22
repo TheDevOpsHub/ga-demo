@@ -1,5 +1,5 @@
 # ga-demo
-Google Analytics demo (Document is WIP)
+Google Analytics demo: https://ga-demo.thedevopshub.org/
 
 ## Prerequisites
 - A registered domain (GoDaddy, Cloudflare): https://www.godaddy.com/
