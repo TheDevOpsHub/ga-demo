@@ -14,14 +14,70 @@
     <!-- End Google Tag Manager -->
 
     <style>
-        body { font-family: Arial, sans-serif; background-color: #eef2f3; text-align: center; padding: 20px; }
-        .container { background: white; padding: 20px; max-width: 600px; margin: auto; border-radius: 10px;
-                     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
-        input, textarea, button { width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ccc; border-radius: 5px; }
-        button { cursor: pointer; color: white; }
-        .btn-submit { background: #007bff; }
-        .btn-download { background: #28a745; }
-        .video-container { margin: 20px 0; }
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #eef2f3;
+            text-align: center;
+            padding: 20px;
+            margin: 0;
+        }
+
+        .container {
+            background: white;
+            padding: 20px;
+            max-width: 100%;
+            width: 100%;
+            box-sizing: border-box;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 0 auto;
+        }
+
+        input, textarea, button {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            cursor: pointer;
+            color: white;
+        }
+
+        .btn-submit {
+            background: #007bff;
+        }
+
+        .btn-download {
+            background: #28a745;
+        }
+
+        .video-container {
+            margin: 20px 0;
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio for responsive video */
+            height: 0;
+            overflow: hidden;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Responsive Adjustments */
+        @media (min-width: 600px) {
+            .container {
+                max-width: 600px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -33,6 +89,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="container">
     <h2>GA4 Advanced Features</h2>
+
     <!-- File Download Tracking -->
     <h3>Download Resources</h3>
     <button class="btn-download" onclick="trackFileDownload('hello.txt')">Download Sample Text File</button>
@@ -58,7 +115,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         window.dataLayer.push(eventData);
 
         // Simulate file download
-        alert("Downloading " + fileName);
+        alert("Downloading " + fileName + " (Simulation)");
     }
 
     // YouTube IFrame API
